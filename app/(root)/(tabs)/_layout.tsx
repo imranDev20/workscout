@@ -1,21 +1,36 @@
+import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
+import { Platform } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabLayout() {
+  const insets = useSafeAreaInsets();
+  const bottomInset = Math.max(insets.bottom, 10);
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#2c3e50", // Dark blue for active icon
-        tabBarInactiveTintColor: "#a0b0c0", // Light gray-blue for inactive icons
+        tabBarActiveTintColor: "#3b82f6", // Modern blue color
+        tabBarInactiveTintColor: "#94a3b8", // Slate gray for inactive
         tabBarShowLabel: false,
         tabBarStyle: {
-          borderTopWidth: 0, // Remove the top border
-          elevation: 0, // Remove shadow on Android
-          shadowOpacity: 0, // Remove shadow on iOS
-          height: 60, // Match height from your image
+          height: Platform.OS === "ios" ? 50 + bottomInset : 60,
+          paddingTop: 8,
+          paddingBottom: Platform.OS === "ios" ? bottomInset : 8,
           backgroundColor: "white",
+          borderTopWidth: 1,
+          borderTopColor: "#f1f5f9", // Very subtle border
+          elevation: 8, // Android shadow
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.05,
+          shadowRadius: 4,
         },
-        headerShown: false, // Remove header
+        headerShown: false,
+        tabBarItemStyle: {
+          padding: 5,
+        },
       }}
     >
       <Tabs.Screen
@@ -23,7 +38,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <Feather size={24} name="home" color={color} />
+            <Feather size={22} name="home" color={color} />
           ),
         }}
       />
@@ -32,7 +47,7 @@ export default function TabLayout() {
         options={{
           title: "Search",
           tabBarIcon: ({ color }) => (
-            <Feather size={24} name="search" color={color} />
+            <Feather size={22} name="search" color={color} />
           ),
         }}
       />
@@ -41,7 +56,7 @@ export default function TabLayout() {
         options={{
           title: "Saved",
           tabBarIcon: ({ color }) => (
-            <Feather size={24} name="file-text" color={color} />
+            <Feather size={22} name="bookmark" color={color} />
           ),
         }}
       />
@@ -50,7 +65,7 @@ export default function TabLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Feather size={24} name="user" color={color} />
+            <Feather size={22} name="user" color={color} />
           ),
         }}
       />

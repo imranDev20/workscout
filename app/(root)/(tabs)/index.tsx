@@ -21,7 +21,10 @@ import { dismissKeyboard } from "@/lib/functions";
 export default function HomeScreen(): React.ReactElement {
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
-      <SafeAreaView className="flex-1 bg-white">
+      <SafeAreaView
+        className="flex-1 bg-white"
+        edges={["top", "left", "right"]}
+      >
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           className="flex-1"

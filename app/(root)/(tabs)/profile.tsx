@@ -16,8 +16,6 @@ import {
 interface ProfileProps {}
 
 const ProfileScreen: React.FC<ProfileProps> = () => {
-  // Sample profile data
-
   // Section title component with edit button
   const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
     <View className="flex-row justify-between items-center mb-4">
@@ -29,20 +27,17 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
   );
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView edges={["top", "left", "right"]} className="flex-1 bg-white">
       <StatusBar style="dark" />
 
       {/* Header */}
       <View className="flex-row items-center px-5 py-2 relative">
-        {/* Absolute positioned container for centered text */}
         <View className="absolute inset-x-0 items-center justify-center">
           <Text className="text-lg font-semibold">Details</Text>
         </View>
 
-        {/* Empty View to maintain flex structure */}
         <View className="flex-1" />
 
-        {/* Settings icon at the right */}
         <TouchableOpacity className="p-1 z-10">
           <Feather name="settings" size={24} color="#333" />
         </TouchableOpacity>
@@ -51,7 +46,7 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         className="flex-1"
-        contentContainerClassName="pb-8"
+        contentContainerStyle={{ paddingBottom: 30 }}
       >
         {/* Profile section */}
         <View className="items-center mt-3">
@@ -191,7 +186,7 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
         </View>
 
         {/* CV Section */}
-        <View className="px-5 mt-6">
+        <View className="px-5 mt-6 mb-5">
           <View className="flex-row justify-between items-center mb-4">
             <Text className="text-lg font-semibold">CV</Text>
             <TouchableOpacity className="flex-row items-center">
@@ -203,7 +198,7 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerClassName="pr-5"
+            contentContainerStyle={{ paddingRight: 20 }}
           >
             {documents.map((doc) => (
               <View
