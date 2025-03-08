@@ -9,7 +9,7 @@ import {
   Text,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { jobData } from "@/constants/jobs";
+import { jobData } from "@/constants/data";
 import ProfileHeader from "@/components/home/ProfileHeader";
 import SearchInput from "@/components/home/SearchInput";
 import Filters from "@/components/home/Filters";
@@ -18,7 +18,7 @@ import Specializations from "@/components/home/Specializations";
 import JobItem from "@/components/home/JobItem";
 import { dismissKeyboard } from "@/lib/functions";
 
-export default function Index(): React.ReactElement {
+export default function HomeScreen(): React.ReactElement {
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <SafeAreaView className="flex-1 bg-white">

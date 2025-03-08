@@ -7,16 +7,13 @@ import {
   Image,
 } from "react-native";
 import React, { useState } from "react";
-import { categories } from "@/constants/categories";
-import { jobData } from "@/constants/jobs";
+import { categories } from "@/constants/data";
+import { jobData } from "@/constants/data";
 import { Ionicons } from "@expo/vector-icons";
+import { dismissKeyboard } from "@/lib/functions";
 
 const CuratedJobs = () => {
   const [activeCategory, setActiveCategory] = useState<string>("Design");
-
-  const dismissKeyboard = (): void => {
-    Keyboard.dismiss();
-  };
 
   return (
     <>

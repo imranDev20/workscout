@@ -7,12 +7,9 @@ import {
 } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { dismissKeyboard } from "@/lib/functions";
 
 const SearchInput = () => {
-  const dismissKeyboard = (): void => {
-    Keyboard.dismiss();
-  };
-
   return (
     <View className="px-4 py-3">
       <View className="flex-row items-center px-4 py-4 border border-gray-200 rounded-xl">
