@@ -85,7 +85,7 @@ export const experiences: ExperienceItem[] = [
     position: "UI/UX Designer",
     location: "California, US",
     period: "Dec 23 - Feb 24",
-    bgColor: "bg-red-600",
+    bgColor: "#DC2626", // Hex for red-600
   },
   {
     id: "2",
@@ -94,7 +94,7 @@ export const experiences: ExperienceItem[] = [
     position: "Junior UX Designer",
     location: "California, US",
     period: "Aug 22 - Dec 23",
-    bgColor: "bg-orange-500",
+    bgColor: "#F97316", // Hex for orange-500
   },
 ];
 
@@ -106,7 +106,7 @@ export const education: EducationItem[] = [
     degree: "Computer Science",
     grade: "Bachelor (4.0)",
     period: "2016 - 2020",
-    bgColor: "bg-yellow-400",
+    bgColor: "#FACC15", // Hex for yellow-400
   },
 ];
 

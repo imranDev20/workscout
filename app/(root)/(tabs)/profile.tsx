@@ -33,9 +33,17 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
       <StatusBar style="dark" />
 
       {/* Header */}
-      <View className="flex-row justify-between items-center px-5 py-2">
-        <Text className="text-lg font-semibold">Details</Text>
-        <TouchableOpacity className="p-1">
+      <View className="flex-row items-center px-5 py-2 relative">
+        {/* Absolute positioned container for centered text */}
+        <View className="absolute inset-x-0 items-center justify-center">
+          <Text className="text-lg font-semibold">Details</Text>
+        </View>
+
+        {/* Empty View to maintain flex structure */}
+        <View className="flex-1" />
+
+        {/* Settings icon at the right */}
+        <TouchableOpacity className="p-1 z-10">
           <Feather name="settings" size={24} color="#333" />
         </TouchableOpacity>
       </View>
@@ -49,7 +57,7 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
         <View className="items-center mt-3">
           <Image
             source={{ uri: user.avatar }}
-            className="w-24 h-24 rounded-lg mb-4"
+            className="w-24 h-24 rounded-full mb-4"
           />
           <View className="flex-row items-center mb-1">
             <Text className="text-2xl font-semibold mr-2">{user.name}</Text>
@@ -84,16 +92,35 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
           {experiences.map((item) => (
             <View key={item.id} className="flex-row mb-4">
               <View
-                className={`w-10 h-10 ${item.bgColor} rounded-lg items-center justify-center`}
+                className="w-14 h-14 rounded-lg items-center justify-center"
+                style={{ backgroundColor: "#FFF9F0" }}
               >
-                <Text className="text-white font-bold">{item.logo}</Text>
+                <Text
+                  style={{
+                    color: item.bgColor,
+                    fontSize: 24,
+                    fontWeight: "bold",
+                  }}
+                >
+                  {item.logo}
+                </Text>
               </View>
+
               <View className="ml-3 flex-1">
-                <Text className="text-base font-semibold">{item.position}</Text>
-                <Text className="text-gray-500">{item.company}</Text>
-                <View className="flex-row justify-between mt-1">
-                  <Text className="text-gray-500">{item.location}</Text>
-                  <Text className="text-gray-500">{item.period}</Text>
+                <View className="flex-row justify-between items-end">
+                  <Text className="text-lg font-bold text-gray-800">
+                    {item.position}
+                  </Text>
+                  <Text className="text-gray-500 font-medium">
+                    {item.location}
+                  </Text>
+                </View>
+
+                <View className="flex-row justify-between mt-1 items-center">
+                  <Text className="text-gray-400 text-base">
+                    {item.company}
+                  </Text>
+                  <Text className="text-gray-400">{item.period}</Text>
                 </View>
               </View>
             </View>
@@ -107,15 +134,23 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
           {education.map((item) => (
             <View key={item.id} className="flex-row mb-4">
               <View
-                className={`w-10 h-10 ${item.bgColor} rounded-lg items-center justify-center`}
+                className={`w-10 h-10 rounded-lg items-center justify-center`}
+                style={{
+                  backgroundColor: item.bgColor,
+                }}
               >
                 <Text className="text-white font-bold">{item.logo}</Text>
               </View>
               <View className="ml-3 flex-1">
-                <Text className="text-base font-semibold">{item.degree}</Text>
-                <Text className="text-gray-500">{item.institution}</Text>
                 <View className="flex-row justify-between mt-1">
-                  <Text className="text-gray-500">{item.grade}</Text>
+                  <Text className="text-base font-semibold">{item.degree}</Text>
+                  <Text className="text-gray-500 font-medium">
+                    {item.grade}
+                  </Text>
+                </View>
+
+                <View className="flex-row justify-between mt-1">
+                  <Text className="text-gray-500">{item.institution}</Text>
                   <Text className="text-gray-500">{item.period}</Text>
                 </View>
               </View>
