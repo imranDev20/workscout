@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 import JobItem from "@/components/home/JobItem";
 import { jobDetailsData, similarJobs } from "@/constants/data";
+import { useRouter } from "expo-router";
 
 interface JobDetailsProps {
   route?: any;
@@ -45,6 +46,7 @@ const ActionFooter = () => (
 
 const JobDetailsScreen: React.FC<JobDetailsProps> = ({ route }) => {
   const navigation = useNavigation();
+  const router = useRouter();
 
   const renderBulletSection = (title: string, items: string[]) => (
     <View className="px-4 py-4">
@@ -162,15 +164,35 @@ const JobDetailsScreen: React.FC<JobDetailsProps> = ({ route }) => {
         <SectionTitle title="About The Company" />
 
         <View className="flex-row items-center justify-between mb-3">
-          <View className="flex-row items-center">
-            <View className="w-8 h-8 bg-red-600 rounded items-center justify-center mr-3">
-              <Text className="text-white font-bold">N</Text>
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: "/companies/[id]",
+                params: { id: jobDetailsData.companyInfo.id },
+              })
+            }
+          >
+            <View className="flex-row items-center">
+              <View className="w-8 h-8 bg-red-600 rounded items-center justify-center mr-3">
+                <Text className="text-white font-bold">N</Text>
+              </View>
+              <Text className="font-medium text-lg">
+                {jobDetailsData.companyInfo.name}
+              </Text>
             </View>
-            <Text className="font-medium text-lg">
-              {jobDetailsData.companyInfo.name}
-            </Text>
-          </View>
-          <Feather name="chevron-right" size={20} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: "/companies/[id]",
+                params: { id: jobDetailsData.companyInfo.id },
+              })
+            }
+            className="p-3" // Increased padding here to make hitbox larger
+          >
+            <Feather name="chevron-right" size={20} color="#666" />
+          </TouchableOpacity>
         </View>
 
         <View className="mb-2">
@@ -187,13 +209,11 @@ const JobDetailsScreen: React.FC<JobDetailsProps> = ({ route }) => {
           </Text>
         </View>
 
-        <TouchableOpacity className="mb-4">
-          <View className="flex-row items-center">
-            <Text className="text-blue-600">
-              View more jobs from this company
-            </Text>
-          </View>
-        </TouchableOpacity>
+        <View className="flex-row items-center mb-4">
+          <Text className="text-blue-600">
+            View more jobs from this company
+          </Text>
+        </View>
       </View>
 
       <View className="pt-4 pb-2 border-t border-gray-200">
@@ -208,13 +228,13 @@ const JobDetailsScreen: React.FC<JobDetailsProps> = ({ route }) => {
     <SafeAreaView className="flex-1 bg-white">
       <StatusBar style="dark" />
 
-      <View className="flex-row items-center justify-between px-4 py-2 border-b border-gray-100">
+      <View className="flex-row items-center justify-between px-4 py-2 border-b border-gray-200">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="p-2" // Added padding to increase hit area
           hitSlop={{ top: 15, bottom: 15, left: 15, right: 15 }}
         >
-          <Feather name="chevron-left" size={24} color="#333" />
+          <Feather name="arrow-left" size={24} color="#333" />
         </TouchableOpacity>
         <Text className="text-lg font-medium">Details</Text>
         <TouchableOpacity className="p-2">

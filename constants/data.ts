@@ -151,6 +151,7 @@ export const jobDetailsData: JobDetailType = {
     "Professional development opportunities",
   ],
   companyInfo: {
+    id: "1",
     name: "Netflix",
     industry: "Streaming, Online",
     employees: "120+ employees",

@@ -31,6 +31,7 @@ export default function TabLayout() {
         tabBarItemStyle: {
           padding: 5,
         },
+        animation: "shift", // Options: "default", "fade", "slide_from_right", "slide_from_left"
       }}
     >
       <Tabs.Screen
@@ -67,6 +68,14 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Feather size={22} name="user" color={color} />
           ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="notifications"
+        options={{
+          title: "Notifications",
+          href: null,
         }}
       />
     </Tabs>

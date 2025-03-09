@@ -12,17 +12,14 @@ import {
   skills,
   user,
 } from "@/constants/data";
+import { useRouter } from "expo-router";
 
 interface ProfileProps {}
 
 const ProfileScreen: React.FC<ProfileProps> = () => {
   // Use ref to control the modal
   const [modalVisible, setModalVisible] = useState(false);
-
-  const handleSave = (data: any) => {
-    console.log("Experience data:", data);
-    // Save the data to your state or API
-  };
+  const router = useRouter();
 
   // Section title component with edit button
   const SectionTitle: React.FC<{ title: string; onAddPress?: () => void }> = ({
@@ -48,7 +45,12 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
 
         <View className="flex-1" />
 
-        <TouchableOpacity className="p-1 z-10">
+        <TouchableOpacity
+          className="p-1 z-10"
+          onPress={() => {
+            router.push("/account-settings");
+          }}
+        >
           <Feather name="settings" size={24} color="#333" />
         </TouchableOpacity>
       </View>

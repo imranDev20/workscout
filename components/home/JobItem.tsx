@@ -9,7 +9,6 @@ const JobItem = ({ item }: { item: JobItemType }) => {
     <TouchableOpacity
       activeOpacity={0.9} // High value to make the tap less obvious but still provide feedback
       className="bg-white rounded-xl p-5 mx-4 mb-4 border border-gray-100 shadow-sm"
-      // This makes the card respond to scroll gestures but still be tappable
       delayPressIn={150}
       onPress={dismissKeyboard}
     >

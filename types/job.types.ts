@@ -32,6 +32,7 @@ export type JobDetailType = {
   requirements: string[];
   benefits: string[];
   companyInfo: {
+    id: string;
     name: string;
     industry: string;
     employees: string;
