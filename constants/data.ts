@@ -2,6 +2,7 @@ import {
   CVDocument,
   EducationItem,
   ExperienceItem,
+  JobDetailType,
   JobItemType,
   JobStatus,
   LanguageItem,
@@ -47,6 +48,115 @@ export const jobData: JobItemType[] = [
     timePosted: "2 weeks ago",
   },
 ];
+
+export const similarJobs: JobItemType[] = [
+  {
+    id: "2",
+    company: "Netflix",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png",
+    position: "Accounting",
+    location: "Jakarta, Indonesia - Onsite",
+    tags: ["Remote", "Contract", "Junior"],
+    timePosted: "5 days ago",
+  },
+  {
+    id: "3",
+    company: "Telegram",
+    logo: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/335_Telegram_logo-512.png",
+    position: "UI designer",
+    location: "Jakarta, Indonesia",
+    tags: ["Remote", "Contract", "Junior"],
+    timePosted: "5 days ago",
+  },
+  {
+    id: "4",
+    company: "Autodesk",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Autodesk_%28logo%29.png",
+    position: "Human Resources",
+    location: "Jakarta, Indonesia - Onsite",
+    tags: ["Remote", "Contract", "Junior"],
+    timePosted: "5 days ago",
+  },
+  {
+    id: "5",
+    company: "Autodesk",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Autodesk_%28logo%29.png",
+    position: "Human Resources",
+    location: "Jakarta, Indonesia - Onsite",
+    tags: ["Remote", "Contract", "Junior"],
+    timePosted: "5 days ago",
+  },
+  {
+    id: "6",
+    company: "Promate",
+    logo: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    position: "Social Media Specialist",
+    location: "Jakarta, Indonesia - Remote",
+    tags: ["Remote", "Contract", "Junior"],
+    timePosted: "5 days ago",
+  },
+];
+
+export const jobDetailsData: JobDetailType = {
+  id: "1",
+  company: "Netflix",
+  position: "UI designer",
+  location: "Jakarta, Indonesia - Onsite",
+  salary: "12,000",
+  experience: "2 - 6 Years",
+  jobType: "Fulltime",
+  level: "Entry level",
+  updatedDays: 23,
+  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png",
+  recruiter: {
+    name: "Nabila Nanda",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    lastOnline: "2 days ago",
+  },
+  skills: [
+    "UI Design",
+    "Teamwork",
+    "UX Design",
+    "Adaptability",
+    "Critical Thinking",
+    "Analytical Skills",
+    "Creative Design",
+    "Communication Skills",
+  ],
+  description:
+    "Netflix is seeking a talented UI Designer to join our design team. In this role, you will be responsible for crafting innovative and engaging user interfaces for our streaming platform. You will work closely with UX designers, product managers, and engineers to create a seamless and personalized user experience.",
+  responsibilities: [
+    "Design user interfaces that are visually appealing and easy to use",
+    "Collaborate with cross-functional teams to define and implement innovative solutions for the product direction, visuals, and experience",
+    "Create wireframes, storyboards, user flows, process flows, and site maps to communicate interaction and design ideas",
+    "Conduct user research and evaluate user feedback to improve and iterate on design solutions",
+    "Ensure designs are consistent with the Netflix brand and design system",
+    "Stay up to date with the latest UI trends, techniques, and technologies",
+  ],
+  requirements: [
+    "Proven UI design experience with a strong portfolio",
+    "Proficiency in design and prototyping tools such as Figma, Sketch, Adobe XD, or similar",
+    "Excellent visual design skills with a keen eye for detail",
+    "Solid experience in creating wireframes, storyboards, user flows, and process flows",
+    "Strong problem-solving skills and attention to detail",
+    "Strong communication skills and the ability to articulate design decisions",
+    "Bachelor's degree in Design, Human-Computer Interaction (HCI), or related field is preferred",
+  ],
+  benefits: [
+    "Competitive salary and benefits package",
+    "Health, dental, and vision insurance",
+    "Unlimited paid time off",
+    "Remote work flexibility",
+    "Access to Netflix streaming service and content",
+    "Professional development opportunities",
+  ],
+  companyInfo: {
+    name: "Netflix",
+    industry: "Streaming, Online",
+    employees: "120+ employees",
+    address: "Los Gatos, California, United States",
+  },
+};
 
 // Available job categories
 export const categories: string[] = [

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
@@ -16,12 +16,23 @@ import {
 interface ProfileProps {}
 
 const ProfileScreen: React.FC<ProfileProps> = () => {
+  // Use ref to control the modal
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleSave = (data: any) => {
+    console.log("Experience data:", data);
+    // Save the data to your state or API
+  };
+
   // Section title component with edit button
-  const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
+  const SectionTitle: React.FC<{ title: string; onAddPress?: () => void }> = ({
+    title,
+    onAddPress,
+  }) => (
     <View className="flex-row justify-between items-center mb-4">
       <Text className="text-lg font-semibold">{title}</Text>
-      <TouchableOpacity className="p-1">
-        <Feather name="edit-3" size={18} color="#666" />
+      <TouchableOpacity className="p-1" onPress={onAddPress || undefined}>
+        <Feather name={"edit-3"} size={18} color="#666" />
       </TouchableOpacity>
     </View>
   );
@@ -29,7 +40,6 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
   return (
     <SafeAreaView edges={["top", "left", "right"]} className="flex-1 bg-white">
       <StatusBar style="dark" />
-
       {/* Header */}
       <View className="flex-row items-center px-5 py-2 relative">
         <View className="absolute inset-x-0 items-center justify-center">
@@ -42,7 +52,6 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
           <Feather name="settings" size={24} color="#333" />
         </TouchableOpacity>
       </View>
-
       <ScrollView
         showsVerticalScrollIndicator={false}
         className="flex-1"
@@ -82,7 +91,10 @@ const ProfileScreen: React.FC<ProfileProps> = () => {
 
         {/* Experience Section */}
         <View className="px-5 mt-6">
-          <SectionTitle title="Experience" />
+          <SectionTitle
+            title="Experience"
+            onAddPress={() => setModalVisible(true)}
+          />
 
           {experiences.map((item) => (
             <View key={item.id} className="flex-row mb-4">

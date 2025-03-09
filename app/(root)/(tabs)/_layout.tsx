@@ -20,7 +20,7 @@ export default function TabLayout() {
           paddingBottom: Platform.OS === "ios" ? bottomInset : 8,
           backgroundColor: "white",
           borderTopWidth: 1,
-          borderTopColor: "#f1f5f9", // Very subtle border
+          borderTopColor: "#e2e8f0", // Very subtle border
           elevation: 8, // Android shadow
           shadowColor: "#000",
           shadowOffset: { width: 0, height: -2 },

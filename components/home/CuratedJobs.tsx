@@ -11,9 +11,11 @@ import { categories } from "@/constants/data";
 import { jobData } from "@/constants/data";
 import { Ionicons } from "@expo/vector-icons";
 import { dismissKeyboard } from "@/lib/functions";
+import { useRouter } from "expo-router";
 
 const CuratedJobs = () => {
   const [activeCategory, setActiveCategory] = useState<string>("Design");
+  const router = useRouter();
 
   return (
     <>
@@ -62,7 +64,13 @@ const CuratedJobs = () => {
               key={item.id}
               activeOpacity={0.9}
               className="bg-white rounded-xl p-5 mr-4 border border-gray-100 shadow-sm w-64"
-              onPress={dismissKeyboard}
+              onPress={() => {
+                dismissKeyboard();
+                router.push({
+                  pathname: "/(root)/jobs/[id]",
+                  params: { id: item.id },
+                });
+              }}
             >
               <View className="flex-row justify-between items-start">
                 <View className="bg-gray-50 p-2 rounded-lg">
