@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { jobData } from "@/constants/data";
 import ProfileHeader from "@/components/home/ProfileHeader";
-import SearchInput from "@/components/home/SearchInput";
+import SearchInputField from "@/components/home/SearchInputField";
 import Filters from "@/components/home/Filters";
 import CuratedJobs from "@/components/home/CuratedJobs";
 import Specializations from "@/components/home/Specializations";
@@ -38,7 +38,7 @@ export default function HomeScreen(): React.ReactElement {
             ListHeaderComponent={() => (
               <>
                 <ProfileHeader />
-                <SearchInput />
+                <SearchInputField />
                 <Filters />
 
                 {/* Featured content card */}
